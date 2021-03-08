@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">BMI</string>
+    <string name="action_switch">Switch metrics</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="bmi">BMI</string>
+    <string name="mass_kg">Mass [kg]</string>
+    <string name="height_cm">Height [cm]</string>
+    <string name="mass_lbs">Mass [lbs]</string>
+    <string name="height_in">Height [in]</string>
+    <string name="bmi_result">Your BMI is \t</string>
+    <string name="info">This BMI application was written by Dominika</string>
+    <string name="underweight">\nUNDERWEIGHT</string>
+    <string name="bmiConstant">BMI \t</string>
+    <string name="normal">\nNORMAL</string>
+    <string name="underWeightDescription">To stay healthy you need to gain some weight.</string>
+    <string name="normalDescription">You\'re in normal range. Good work!.</string>
+    <string name="overweight">\nOVERWEIGHT</string>
+    <string name="overweightDesctiption">To stay healthy you need to loose some weight.</string>
+    <string name="invalidErr">Your input is not valid.</string>
+</resources>
