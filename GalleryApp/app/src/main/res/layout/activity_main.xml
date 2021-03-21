@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#6F009688"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Lab1.AppBarOverlay">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.Lab1.PopupOverlay"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <view
+        android:id="@+id/recyclerView"
+        class="androidx.recyclerview.widget.RecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical">
+
+    </view>
+
+    <Button
+        android:id="@+id/btnTakePicture"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="83dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="38dp"
+        android:background="@android:drawable/ic_menu_camera"
+        android:backgroundTint="#9F009688"
+        android:ellipsize="middle"
+        android:src="@android:drawable/ic_input_add" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="pl.edu.pwr.lab23.i236764.fragment.DeleteInfoFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>
