@@ -83,10 +83,7 @@ class GalleryFullscreenFragment : DialogFragment() {
 
             val layoutInflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val view = layoutInflater.inflate(R.layout.image_fullscreen, container, false)
-<<<<<<< HEAD
-=======
 
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
             val image = imageList.get(position)
 
             view.ivFullscreenImage.setImageBitmap(image.img)

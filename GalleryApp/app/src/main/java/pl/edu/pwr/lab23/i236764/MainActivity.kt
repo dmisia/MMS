@@ -2,13 +2,9 @@ package pl.edu.pwr.lab23.i236764
 
 import android.annotation.SuppressLint
 import android.app.Activity
-<<<<<<< HEAD
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-=======
-import android.content.Intent
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
@@ -23,21 +19,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.GridLayoutManager
-<<<<<<< HEAD
 import com.google.gson.Gson
-=======
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
 import kotlinx.android.synthetic.main.activity_main.*
 import pl.edu.pwr.lab23.i236764.adapter.GalleryImageAdapter
 import pl.edu.pwr.lab23.i236764.adapter.GalleryImageClickListener
 import pl.edu.pwr.lab23.i236764.adapter.Image
 import pl.edu.pwr.lab23.i236764.fragment.DeleteInfoFragment
 import pl.edu.pwr.lab23.i236764.fragment.GalleryFullscreenFragment
-<<<<<<< HEAD
 import java.io.*
-=======
-import java.io.File
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -67,10 +56,7 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
         // init recyclerview
         recyclerView.layoutManager = GridLayoutManager(this, SPAN_COUNT)
         recyclerView.adapter = galleryAdapter
-<<<<<<< HEAD
         loadImages()
-=======
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
         val toolbar =
             findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -87,18 +73,10 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
                 Toast.makeText(this, "Unable to open camera", Toast.LENGTH_SHORT).show()
             }
         }
-<<<<<<< HEAD
-
     }
 
     private fun getPhotoFile(fileName: String): File {
-=======
-        loadImages()
-    }
 
-    private fun getPhotoFile(fileName: String): File {
-        // Use `getExternalFilesDir` on Context to access package-specific directories.
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
         val storageDirectory = getExternalFilesDir(DIRECTORY_PICTURES)
         return File.createTempFile(fileName, ".jpg", storageDirectory)
 
@@ -109,7 +87,6 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val takenImage = BitmapFactory.decodeFile(photoFile.absolutePath)
-<<<<<<< HEAD
             val title = "IMG-" + n.toString()
             val image = Image(
                 photoFile.absolutePath, title, takenImage,
@@ -122,15 +99,6 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
             n++
             val file = File(photoFile.absolutePath)
             file.writeBitmap(takenImage, Bitmap.CompressFormat.JPEG, 85)
-=======
-            imageList.add(
-                Image(
-                photoFile.absolutePath, "IMG-"+ n.toString(), takenImage,
-                getDate(), "photo", false)
-            )
-            n++
-            File(photoFile.absolutePath).writeBitmap(takenImage, Bitmap.CompressFormat.JPEG, 85)
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
@@ -157,7 +125,7 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
     }
 
     private fun loadImages() {
-<<<<<<< HEAD
+
        /*
 
         for(i in applicationContext.filesDir!!.list()){
@@ -170,8 +138,6 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
                 imageList.add(img)
             }
         }*/
-=======
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
         galleryAdapter.notifyDataSetChanged()
     }
 
@@ -198,11 +164,7 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
     }
 
     fun deleteImage(position: Int) {
-<<<<<<< HEAD
         imageList.removeAt(position)
-=======
-       imageList.removeAt(position)
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
         galleryAdapter.notifyDataSetChanged()
     }
 
@@ -220,27 +182,18 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
                 return true
             }
             R.id.action_sort_name_asc -> {
-<<<<<<< HEAD
                 imageList.sortBy { image -> image.title }
-=======
-                imageList.sortBy { image -> image.created }
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
                 galleryAdapter.notifyDataSetChanged()
                 return true
             }
             R.id.action_sort_name_asc -> {
-<<<<<<< HEAD
                 imageList.sortBy { image -> image.title }
-=======
-                imageList.sortBy { image -> image.created }
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
                 galleryAdapter.notifyDataSetChanged()
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
         }
     }
-<<<<<<< HEAD
 
     private fun storeImage(image: Bitmap, fileName: String) {
         try {
@@ -285,7 +238,5 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
         }
         return null
     }
-=======
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
 }
 

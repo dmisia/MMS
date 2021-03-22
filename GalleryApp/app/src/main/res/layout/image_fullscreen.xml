@@ -24,12 +24,5 @@
         android:layout_marginEnd="20dp"
         android:background="@android:drawable/btn_star_big_off" />
 
-<<<<<<< HEAD
-=======
-    <pl.edu.pwr.lab23.i236764.helper.ZoomOutPageTransformer
-        android:id="@+id/largeImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
->>>>>>> 9a4f484f8456d3fe03b4b6acc300cdf4f08716e0
 </RelativeLayout>
