@@ -26,7 +26,9 @@ import pl.edu.pwr.lab23.i236764.adapter.GalleryImageClickListener
 import pl.edu.pwr.lab23.i236764.adapter.Image
 import pl.edu.pwr.lab23.i236764.fragment.DeleteInfoFragment
 import pl.edu.pwr.lab23.i236764.fragment.GalleryFullscreenFragment
-import java.io.*
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.IOException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -56,7 +58,6 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
         // init recyclerview
         recyclerView.layoutManager = GridLayoutManager(this, SPAN_COUNT)
         recyclerView.adapter = galleryAdapter
-        loadImages()
         val toolbar =
             findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
                 Toast.makeText(this, "Unable to open camera", Toast.LENGTH_SHORT).show()
             }
         }
+        loadImages()
     }
 
     private fun getPhotoFile(fileName: String): File {
@@ -89,11 +91,11 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
             val takenImage = BitmapFactory.decodeFile(photoFile.absolutePath)
             val title = "IMG-" + n.toString()
             val image = Image(
-                photoFile.absolutePath, title, takenImage,
+                applicationContext.filesDir.absolutePath+"/"+title+".jpg", title, takenImage,
                 getDate(), "type: photo", false
             )
             storeImage(takenImage, title)
-            saveObjectToSharedPreference(applicationContext, "mPreference", title+".jpg", image);
+            saveObjectToSharedPreference(applicationContext, applicationContext.packageName+"_preferences", title+".jpg", image);
 
             imageList.add(image)
             n++
@@ -126,18 +128,20 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
 
     private fun loadImages() {
 
-       /*
 
         for(i in applicationContext.filesDir!!.list()){
             println(i)
             val img : Image? =
                 getSavedObjectFromPreference(
-                    applicationContext,"mPreference",i, Image::class.java
+                    applicationContext,applicationContext.packageName+"_preferences", i, Image::class.java
                 )
             if (img != null) {
+                img.img = BitmapFactory.decodeFile(img.imagePath)
                 imageList.add(img)
             }
-        }*/
+        }
+        var maxTitle = imageList.get(imageList.size - 1).title
+        n = maxTitle.substring(4, maxTitle.length).toInt()+1
         galleryAdapter.notifyDataSetChanged()
     }
 
@@ -200,7 +204,7 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
             val mImageName = "$fileName.jpg"
             val fos =
                 openFileOutput(mImageName, Context.MODE_PRIVATE)
-            image.compress(Bitmap.CompressFormat.PNG, 90, fos)
+            image.compress(Bitmap.CompressFormat.JPEG, 85, fos)
             fos.close()
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
@@ -216,7 +220,7 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
         `object`: Any?
     ): Unit {
         val sharedPreferences: SharedPreferences =
-            context.getSharedPreferences(preferenceFileName, 0)
+            context.getSharedPreferences(preferenceFileName, Context.MODE_PRIVATE)
         val sharedPreferencesEditor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
         val serializedObject: String = gson.toJson(`object`)
