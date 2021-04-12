@@ -9,9 +9,9 @@
       android:layout_height="wrap_content"
       android:layout_alignParentEnd="true"
       android:layout_alignParentRight="true"
-      android:background="?android:attr/selectableItemBackground"
+      android:background="#7f000000"
       android:padding="8dp"
-      android:text="Save" />
+      android:text="@string/save" />
 
   <android.opengl.GLSurfaceView
       android:id="@+id/effectView"

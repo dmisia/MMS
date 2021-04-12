@@ -56,7 +56,7 @@ class VideoActivity : AppCompatActivity() {
             audioLayout.setVisibility(View.VISIBLE)
             playAudio(view)
         } else {
-            video?.setVisibility(View.VISIBLE)
+            videoLay.setVisibility(View.VISIBLE)
             playVideo(view)
         }
     }
@@ -65,7 +65,7 @@ class VideoActivity : AppCompatActivity() {
         pauseAudio(view)
         pauseVideo(view)
         audioLayout.setVisibility(View.INVISIBLE)
-        video?.setVisibility(View.INVISIBLE)
+        videoLay.setVisibility(View.INVISIBLE)
         front.setVisibility(View.VISIBLE)
     }
 

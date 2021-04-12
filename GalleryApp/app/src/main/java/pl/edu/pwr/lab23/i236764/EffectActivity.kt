@@ -68,10 +68,12 @@ class EffectActivity : AppCompatActivity(), OnProcessingCompletionListener, OnFi
             checkPermissionAndSaveImage()
         }
     }
+
     override fun onSaveInstanceState(oldInstanceState: Bundle) {
         super.onSaveInstanceState(oldInstanceState)
         oldInstanceState.clear()
     }
+
     private fun checkPermissionAndSaveImage() {
         if (VERSION.SDK_INT >= VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)

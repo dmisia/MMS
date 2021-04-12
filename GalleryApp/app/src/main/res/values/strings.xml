@@ -7,4 +7,10 @@
     <string name="sort_by_name_desc">Sort by name &#8595;</string>
     <string name="sort_by_date_desc">Sort by date &#8595;</string>
     <string name="sort_by_name_asc">Sort by name &#8593;</string>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+    <string name="play_video">Play Video</string>
+    <string name="play_audio">Play Audio</string>
 </resources>

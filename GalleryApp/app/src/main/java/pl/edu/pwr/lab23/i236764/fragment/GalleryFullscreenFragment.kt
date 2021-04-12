@@ -74,12 +74,10 @@ class GalleryFullscreenFragment : DialogFragment() {
         viewPager.setCurrentItem(position, false)
     }
 
-    // viewpager page change listener
     internal var viewPagerPageChangeListener: ViewPager.OnPageChangeListener =
             object : ViewPager.OnPageChangeListener {
 
         override fun onPageSelected(position: Int) {
-            // set gallery title
             var keysString =  imageList.get(position).keys.toString()
             tvGalleryTitle.text = imageList.get(position).title
             tvGalleryCreated.text = imageList.get(position).created
@@ -115,8 +113,6 @@ class GalleryFullscreenFragment : DialogFragment() {
             val layoutInflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val image = imageList.get(position)
             if (image.type == "type: video"){
-//                val view = layoutInflater.inflate(R.layout.video_fullscreen, container, false)
-//                view.ivFullscreenVideo.setVideoPath(image.imagePath)
                 val view =
                     layoutInflater.inflate(R.layout.activity_video, container, false)
                 val intent = Intent(activity, VideoActivity::class.java)
@@ -147,14 +143,6 @@ class GalleryFullscreenFragment : DialogFragment() {
                 return view
             }
 
-        }
-
-        fun play(view: View) {
-            print("play")
-        }
-
-        fun back(view: View?) {
-            print("back")
         }
 
         override fun getCount(): Int {
