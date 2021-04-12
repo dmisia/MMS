@@ -24,18 +24,18 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="143dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="18dp"
-        android:layout_toStartOf="@+id/buttonDeleteNo"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="0dp"
         android:text="@string/yes"
         android:textSize="10sp" />
 
     <Button
         android:id="@+id/buttonDeleteNo"
-        android:layout_width="50dp"
+        android:layout_width="52dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="149dp"
         android:layout_marginBottom="0dp"
         android:text="@string/no"

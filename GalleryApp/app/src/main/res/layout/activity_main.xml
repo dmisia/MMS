@@ -22,12 +22,32 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <EditText
+        android:id="@+id/tvKeysSearch"
+        android:layout_width="413dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="-2dp"
+        android:background="#7f000000"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:textStyle="italic" />
 
     <view
         android:id="@+id/recyclerView"
         class="androidx.recyclerview.widget.RecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="99dp"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="vertical">
 
@@ -36,14 +56,46 @@
     <Button
         android:id="@+id/btnTakePicture"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="83dp"
+        android:layout_width="74dp"
+        android:layout_height="67dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="94dp"
         android:background="@android:drawable/ic_menu_camera"
+        android:backgroundTint="#9F009688"
+        android:ellipsize="middle"
+        android:src="@android:drawable/ic_input_add" />
+
+    <Button
+        android:id="@+id/btnTakeVideo"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="74dp"
+        android:layout_height="67dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginBottom="28dp"
+        android:background="@android:drawable/ic_menu_slideshow"
+        android:backgroundTint="#9F009688"
+        android:ellipsize="middle"
+        android:src="@android:drawable/ic_input_add" />
+
+    <Button
+        android:id="@+id/btnTakeAudio"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginBottom="29dp"
+        android:background="@android:drawable/ic_btn_speak_now"
         android:backgroundTint="#9F009688"
         android:ellipsize="middle"
         android:src="@android:drawable/ic_input_add" />
@@ -56,5 +108,17 @@
         android:layout_alignParentBottom="false"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="371dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="2dp"
+        android:background="@android:drawable/ic_search_category_default" />
 
 </RelativeLayout>

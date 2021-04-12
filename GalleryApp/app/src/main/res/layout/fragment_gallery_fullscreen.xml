@@ -4,17 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/black">
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+    <EditText
+        android:id="@+id/tvKeysEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="635dp"
+        android:layout_marginEnd="0dp"
+        android:background="#7f000000"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/tvGalleryTitle"
-        android:layout_width="match_parent"
+        android:layout_width="121dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
         android:background="#7f000000"
         android:gravity="center"
         android:padding="10dp"
@@ -25,8 +48,8 @@
 
     <TextView
         android:id="@+id/tvGalleryCreated"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
+        android:layout_width="121dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:background="#7f000000"
         android:gravity="center"
@@ -38,8 +61,8 @@
 
     <TextView
         android:id="@+id/tvGalleryType"
-        android:layout_width="122dp"
-        android:layout_height="61dp"
+        android:layout_width="125dp"
+        android:layout_height="60dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:background="#7f000000"
@@ -49,5 +72,6 @@
         android:textSize="16sp"
         android:textStyle="bold"
         tools:text="Gallery Image Type" />
+
 
 </RelativeLayout>

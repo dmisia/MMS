@@ -1,19 +1,33 @@
 package pl.edu.pwr.lab23.i236764.fragment
 
 import android.content.Context
+import android.content.Intent
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
+import android.widget.MediaController
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import pl.edu.pwr.lab23.i236764.R
-import pl.edu.pwr.lab23.i236764.adapter.Image
-import pl.edu.pwr.lab23.i236764.helper.ZoomOutPageTransformer
 import kotlinx.android.synthetic.main.image_fullscreen.*
 import kotlinx.android.synthetic.main.image_fullscreen.view.*
+import kotlinx.android.synthetic.main.image_fullscreen.view.star
+import kotlinx.android.synthetic.main.video_fullscreen.view.*
+import pl.edu.pwr.lab23.i236764.EffectActivity
+import pl.edu.pwr.lab23.i236764.MainActivity
+import pl.edu.pwr.lab23.i236764.R
+import pl.edu.pwr.lab23.i236764.VideoActivity
+import pl.edu.pwr.lab23.i236764.adapter.Image
+import pl.edu.pwr.lab23.i236764.helper.ZoomOutPageTransformer
+
 
 class GalleryFullscreenFragment : DialogFragment() {
 
@@ -23,6 +37,7 @@ class GalleryFullscreenFragment : DialogFragment() {
     lateinit var tvGalleryTitle: TextView
     lateinit var tvGalleryCreated: TextView
     lateinit var tvGalleryType: TextView
+    lateinit var tvKeysEdit: EditText
     lateinit var viewPager: ViewPager
 
     lateinit var galleryPagerAdapter: GalleryPagerAdapter
@@ -34,6 +49,7 @@ class GalleryFullscreenFragment : DialogFragment() {
         tvGalleryTitle = view.findViewById(R.id.tvGalleryTitle)
         tvGalleryCreated = view.findViewById(R.id.tvGalleryCreated)
         tvGalleryType = view.findViewById(R.id.tvGalleryType)
+        tvKeysEdit = view.findViewById(R.id.tvKeysEdit)
 
         galleryPagerAdapter = GalleryPagerAdapter()
 
@@ -64,9 +80,23 @@ class GalleryFullscreenFragment : DialogFragment() {
 
         override fun onPageSelected(position: Int) {
             // set gallery title
+            var keysString =  imageList.get(position).keys.toString()
             tvGalleryTitle.text = imageList.get(position).title
             tvGalleryCreated.text = imageList.get(position).created
             tvGalleryType.text = imageList.get(position).type
+            tvKeysEdit.setText(keysString.substring(1, keysString.length-1), TextView.BufferType.EDITABLE);
+
+            tvKeysEdit.setOnEditorActionListener(TextView.OnEditorActionListener { view, actionId, event ->
+                if (actionId == EditorInfo.IME_ACTION_DONE || event.keyCode === KeyEvent.KEYCODE_ENTER
+                    && event.action === KeyEvent.ACTION_DOWN) {
+                    view.isCursorVisible = false
+                    var keys = tvKeysEdit.text
+                    (activity as MainActivity?)!!.editKeys(keys.split(","), position)
+                    true
+                } else {
+                    false
+                }
+            })
         }
 
         override fun onPageScrolled(arg0: Int, arg1: Float, arg2: Int) {
@@ -74,6 +104,7 @@ class GalleryFullscreenFragment : DialogFragment() {
 
         override fun onPageScrollStateChanged(arg0: Int) {
         }
+
     }
 
     // gallery adapter
@@ -82,24 +113,48 @@ class GalleryFullscreenFragment : DialogFragment() {
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
             val layoutInflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val view = layoutInflater.inflate(R.layout.image_fullscreen, container, false)
-
             val image = imageList.get(position)
-
-            view.ivFullscreenImage.setImageBitmap(image.img)
-            view.star.setOnClickListener{
-                if(!image.isStar) {
-                    image.isStar = true
-                    star.setBackgroundDrawable(resources.getDrawable(R.drawable.full_star))
-                }
-                else{
-                    image.isStar = false
-                    star.setBackgroundDrawable(resources.getDrawable(R.drawable.empty_star))
-                }
+            if (image.type == "type: video"){
+//                val view = layoutInflater.inflate(R.layout.video_fullscreen, container, false)
+//                view.ivFullscreenVideo.setVideoPath(image.imagePath)
+                val view =
+                    layoutInflater.inflate(R.layout.activity_video, container, false)
+                val intent = Intent(activity, VideoActivity::class.java)
+                val b = Bundle()
+                b.putString("path", image.imagePath)
+                intent.putExtras(b)
+                startActivity(intent)
+                container.addView(view)
+                return view
             }
-            container.addView(view)
+            else {
+                val view = layoutInflater.inflate(R.layout.image_fullscreen, container, false)
+                view.ivFullscreenImage.setImageBitmap(image.img)
+                view.star.setOnClickListener {
+                    if (!image.isStar) {
+                        image.isStar = true
+                        star.setBackgroundDrawable(resources.getDrawable(R.drawable.full_star))
+                    } else {
+                        image.isStar = false
+                        star.setBackgroundDrawable(resources.getDrawable(R.drawable.empty_star))
+                    }
+                }
+                view.edit.setOnClickListener{
+                    val intent = Intent(activity, EffectActivity::class.java)
+                    startActivity(intent)
+                }
+                container.addView(view)
+                return view
+            }
 
-            return view
+        }
+
+        fun play(view: View) {
+            print("play")
+        }
+
+        fun back(view: View?) {
+            print("back")
         }
 
         override fun getCount(): Int {
