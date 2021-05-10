@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:background="@color/color_belize_hole"
+    android:gravity="center"
+    android:paddingLeft="4dp"
+    android:paddingTop="16dp"
+    android:paddingRight="4dp"
+    tools:context="edu.pwr.lab46.i236764.MapQuizActivity">
+
+    <TextView
+        android:id="@+id/questionTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="35dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        tools:text="Where is the city?" />
+
+    <FrameLayout
+        android:id="@+id/quizMapView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTextView2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="485dp"
+            tools:context=".MapQuizActivity" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/optionsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quizMapView"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/option3TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:gravity="center"
+            android:padding="7dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/answerOptionTextSize"
+            tools:text="Check" />
+
+        <TextView
+            android:id="@+id/nextQuestionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:gravity="center"
+            android:padding="7dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/answerOptionTextSize"
+            tools:text="Next" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/questionCounterTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="5/10" />
+
+        <TextView
+            android:id="@+id/timeCounterTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@id/questionCounterTextView2"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="60" />
+
+
+        <TextView
+            android:id="@+id/firstLevelCorrectAnswersTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="Score: 0" />
+
+    </RelativeLayout>
+</RelativeLayout>

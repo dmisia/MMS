@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".StartActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/creatorTextView"
+        android:background="@color/color_belize_hole">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/quizTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/start_activity_app_title_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/startQuizButton"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/quizTitleTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="75dp"
+                android:background="@color/green_background"
+                android:elevation="5dp"
+                android:text="Start quizz"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size" />
+
+            <Button
+                android:id="@+id/highScoreButton"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/startQuizButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:background="@color/green_background"
+                android:elevation="5dp"
+                android:text="   Results   "
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/creatorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/separator"
+        android:background="@color/color_belize_hole"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white" />
+
+</RelativeLayout>

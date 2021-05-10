@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_peter_river">
+
+    <TextView
+        android:id="@+id/scoreNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        tools:text="John" />
+
+    <TextView
+        android:id="@+id/scoreResultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/scoreNameTextView"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        tools:text="500" />
+
+    <TextView
+        android:id="@+id/scoreDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/scoreResultTextView"
+        android:gravity="right"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:text="5.05.2021" />
+
+</RelativeLayout>

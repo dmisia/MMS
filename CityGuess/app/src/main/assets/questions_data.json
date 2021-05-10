@@ -1,0 +1,286 @@
+{
+  "status_code": 200,
+  "message": "Success",
+  "data": [
+    {
+      "id": "1",
+      "level": "1",
+      "answer": "Barcelona",
+      "longitude": "2.1774322",
+      "latitude": "41.3828939",
+      "image_name": "barselona"
+    },
+    {
+      "id": "2",
+      "level": "2",
+      "answer": "Amsterdam",
+      "longitude": "4.8936041",
+      "latitude": "52.3727598",
+      "image_name": "amsterdam"
+    },
+    {
+      "id": "3",
+      "level": "1",
+      "answer": "Athens",
+      "longitude": "23.727539",
+      "latitude": "37.983810",
+      "image_name": "acropolis"
+    },
+    {
+      "id": "4",
+      "level": "2",
+      "answer": "Paris",
+      "longitude": "49.8326748",
+      "latitude": "40.3754434",
+      "image_name": "arcdetriumphe"
+    },
+    {
+      "id": "5",
+      "level": "3",
+      "answer": "Baku",
+      "longitude": "49.867092",
+      "latitude": "40.409264",
+      "image_name": "baku"
+    },
+    {
+      "id": "6",
+      "level": "3",
+      "answer": "Belgrad",
+      "longitude": "20.3817918",
+      "latitude": "44.6802084",
+      "image_name": "belgrade"
+    },
+    {
+      "id": "7",
+      "level": "2",
+      "answer": "Berlin",
+      "longitude": "13.3888599",
+      "latitude": "52.5170365",
+      "image_name": "berlinbradenburg"
+    },
+    {
+      "id": "8",
+      "level": "1",
+      "answer": "Budva",
+      "longitude": "18.84",
+      "latitude": "42.28639" ,
+      "image_name": "budva"
+    },
+    {
+      "id": "9",
+      "level": "3",
+      "answer": "Budapest",
+      "longitude": "19.040236",
+      "latitude": "47.497913" ,
+      "image_name": "budapest"
+    },
+    {
+      "id": "10",
+      "level": "2",
+      "answer": "Buenos Aires",
+      "longitude": "-58.381557",
+      "latitude": "-34.603683",
+      "image_name": "buenosaires"
+    },
+    {
+      "id": "11",
+      "level": "1",
+      "answer": "New York",
+      "longitude": "-74.005974",
+      "latitude": "40.712776",
+      "image_name": "centralpark"
+    },
+    {
+      "id": "12",
+      "level": "3",
+      "answer": "Dubrovnik",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "dubrovnik"
+    },
+    {
+      "id": "13",
+      "level": "2",
+      "answer": "Pekin",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "forbidencity"
+    },
+    {
+      "id": "14",
+      "level": "1",
+      "answer": "Los Angeles",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "hollywood"
+    },
+    {
+      "id": "15",
+      "level": "1",
+      "answer": "Istanbul",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "istanbul"
+    },
+    {
+      "id": "16",
+      "level": "2",
+      "answer": "Kotor",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "kotor"
+    },
+    {
+      "id": "17",
+      "level": "3",
+      "answer": "Kuala Lumpur",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "kualalumpur"
+    },
+    {
+      "id": "18",
+      "level": "2",
+      "answer": "Las Vegas",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "lasvegas"
+    },
+    {
+      "id": "19",
+      "level": "2",
+      "answer": "Ljubljana",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "ljubljana"
+    },
+    {
+      "id": "20",
+      "level": "2",
+      "answer": "Madrid",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "madrid"
+    },
+    {
+      "id": "21",
+      "level": "2",
+      "answer": "Milan",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "milan"
+    },
+    {
+      "id": "22",
+      "level": "1",
+      "answer": "Moskow",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "moscow"
+    },
+    {
+      "id": "23",
+      "level": "1",
+      "answer": "Mostar",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "mostar"
+    },
+    {
+      "id": "24",
+      "level": "3",
+      "answer": "Minhen",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "munich"
+    },
+    {
+      "id": "25",
+      "level": "1",
+      "answer": "New York",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "newyorkcity"
+    },
+    {
+      "id": "26",
+      "level": "2",
+      "answer": "Ohrid",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "ohrid"
+    },
+    {
+      "id": "27",
+      "level": "1",
+      "answer": "Paris",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "paris"
+    },
+    {
+      "id": "28",
+      "level": "2",
+      "answer": "Prague",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "prague"
+    },
+    {
+      "id": "29",
+      "level": "3",
+      "answer": "Riga",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "riga"
+    },
+    {
+      "id": "30",
+      "level": "1",
+      "answer": "Rio de Janeiro",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "riobrasil"
+    },
+    {
+      "id": "31",
+      "level": "1",
+      "answer": "Rome",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "rome"
+    },
+    {
+      "id": "32",
+      "level": "3",
+      "answer": "Shanghai",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "shangai"
+    },
+    {
+      "id": "33",
+      "level": "3",
+      "answer": "Stokholm",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "stockholm"
+    },
+    {
+      "id": "34",
+      "level": "2",
+      "answer": "London",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "stpaullondon"
+    },
+    {
+      "id": "35",
+      "level": "1",
+      "answer": "Sydney",
+      "longitude": "18.108334",
+      "latitude": "42.640278",
+      "image_name": "sydneyopera"
+    }
+  ]
+}
