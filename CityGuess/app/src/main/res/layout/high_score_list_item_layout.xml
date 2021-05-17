@@ -40,6 +40,7 @@
         android:padding="10dp"
         android:textColor="@color/white"
         android:textSize="18sp"
-        tools:text="5.05.2021" />
+        tools:text="5.05.2021"
+        tools:ignore="RtlHardcoded" />
 
 </RelativeLayout>

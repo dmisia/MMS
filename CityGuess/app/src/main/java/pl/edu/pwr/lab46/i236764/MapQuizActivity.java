@@ -29,8 +29,8 @@ public class MapQuizActivity extends FragmentActivity implements OnMapReadyCallb
     String actualLongitude, actualLatitude;
     double dragLongitude;
     double dragLatitude;
-    int score;
-    TextView questionTextView2, timeCounterTextView2, option3TextView, nextQuestionTextView, correctAnswersTextView2;
+    int score, questionsCounter;
+    TextView questionTextView2, timeCounterTextView2, option3TextView, nextQuestionTextView, correctAnswersTextView2, questionCounterTextView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class MapQuizActivity extends FragmentActivity implements OnMapReadyCallb
         nextQuestionTextView = findViewById(R.id.nextQuestionTextView);
         questionTextView2 = findViewById(R.id.questionTextView2);
         timeCounterTextView2 = findViewById(R.id.timeCounterTextView2);
+        questionCounterTextView2 = findViewById(R.id.questionCounterTextView2);
 
         option3TextView.setBackgroundResource(R.drawable.answeroption_drawable);
         option3TextView.setVisibility(View.VISIBLE);
@@ -51,6 +52,8 @@ public class MapQuizActivity extends FragmentActivity implements OnMapReadyCallb
         actualLongitude = getIntent().getStringExtra("longitude");
         actualLatitude = getIntent().getStringExtra("latitude");
         score = getIntent().getExtras().getInt("score");
+        questionsCounter = getIntent().getExtras().getInt("questionsCounter");
+        questionCounterTextView2.setText(questionsCounter + "/15");
 
         if (actualLatitude != null && actualLongitude != null) {
             actualLatLng = new LatLng(Double.parseDouble(actualLatitude), Double.parseDouble(actualLongitude));
@@ -108,6 +111,7 @@ public class MapQuizActivity extends FragmentActivity implements OnMapReadyCallb
                 Intent intent = new Intent(this, MainQuizActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("score", score);
+                bundle.putInt("questionsCounter", questionsCounter+1);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);

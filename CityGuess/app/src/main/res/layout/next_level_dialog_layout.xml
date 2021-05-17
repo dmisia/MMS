@@ -17,7 +17,7 @@
         android:layout_marginBottom="10dp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        tools:text="You answered 5 questions." />
+        tools:text="@string/score_points_5" />
 
     <TextView
         android:id="@+id/scoreTimeTextView"
@@ -29,7 +29,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:text="You reached higher level!"
+        android:text="@string/you_reached_higher_level"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
@@ -46,7 +46,7 @@
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="20dp"
-        android:text="Next"
+        android:text="@string/next"
         android:textColor="@color/white"
         android:textSize="22sp" />
 

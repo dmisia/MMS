@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -43,7 +45,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     private String currentQuestionAnswer, currLongitude, currLatitude;
     private Handler timeCounterHandler;
     private int secondsCounter = 0;
-    int questionsCounter = 0;
+    int questionsCounter = 1;
     int score = 0;
     private Runnable secondsRunnable;
     AlertDialog newGameDialog, enterNameDialog, nextLevelDialog;
@@ -60,6 +62,9 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     TextView correctAnswersTextView;
     private Button nextLevelButton;
     private TextView scorePointsThisLevelTextView;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +118,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         option1TextView.setOnClickListener(this);
         option1TextView.setOnFocusChangeListener(ofcListener);
 
-        questionCounterTextView.setText(questionsCounter + "/5");
+//        questionCounterTextView.setText(questionsCounter + "/5");
         timeCounterTextView.setText(String.valueOf(secondsCounter));
 
         newGameDialogView = inflater.inflate(R.layout.new_game_dialog_layout, null);
@@ -157,6 +162,15 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         nextLevelDialog = new AlertDialog.Builder(this).create();
         nextLevelDialog.setView(nextLevelDialogView, 0, 0, 0, 0);
 
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(count -> {
+            handleShakeEvent(count);
+        });
+
         firstLevelQuestionArray = getLevelQuestions(1);
         secondLevelQuestionArray = getLevelQuestions(2);
         thirdLevelQuestionArray = getLevelQuestions(3);
@@ -165,9 +179,22 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         correctAnswersTextView = findViewById(R.id.firstLevelCorrectAnswersTextView);
         correctAnswersTextView.setText("Score: " + score);
+
+
+        Integer questionsCounter = getIntent().getExtras().getInt("questionsCounter");
+        this.questionsCounter = questionsCounter != null? questionsCounter : 0;
+
+        questionCounterTextView.setText(questionsCounter + "/15");
         setNewQuestion();
         startTimer();
 
+    }
+
+    private void handleShakeEvent(int count) {
+        //To make my app more attractive, I planned to create functionality which will 
+		//mix the sqares after shake. Unfortunately I couldn't simulate shake event on emulator.
+		//So I left the basic version with map, and left a footprint, that I tried to enhance it with Sensor too.
+        System.out.println(count);
     }
 
 
@@ -190,6 +217,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                     intent.putExtra("longitude", currLongitude);
                     intent.putExtra("latitude", currLatitude);
                     intent.putExtra("score", score);
+                    intent.putExtra("questionsCounter", questionsCounter);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
                 }
@@ -210,15 +238,13 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 option2TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
                 break;
             case R.id.getHintTextView:
-                if(hintTextView.getVisibility() != View.VISIBLE) {
-                    hintTextView.setVisibility(View.VISIBLE);
-                    hintTextView.setText("City name starts with " + currentQuestionAnswer.charAt(0));
-                    score = score + 20;
-                    correctAnswersTextView.setText("Score: " + score);
-                }
-                else{
+                if (hintCnt < currentQuestionAnswer.length()) {
+                    hintCnt++;
+                    if (hintTextView.getVisibility() != View.VISIBLE) {
+                        hintTextView.setVisibility(View.VISIBLE);
+                    }
                     hintTextView.setText("City name starts with " + currentQuestionAnswer.substring(0, hintCnt));
-                    score = score + 20;
+                    score = score + 50;
                     correctAnswersTextView.setText("Score: " + score);
                 }
                 break;
@@ -318,6 +344,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         hintCnt = 0;
         hintTextView.setVisibility(View.GONE);
         questionsCounter++;
+        questionCounterTextView.setText(questionsCounter + "/15");
         switch (currentLevel) {
             default:
                 questionCounterTextView.setText(questionsCounter + "/15");
@@ -334,7 +361,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         currentQuestionAnswer = currentQuestionItem.answer;
         currLongitude = currentQuestionItem.longitude;
         currLatitude = currentQuestionItem.latitude;
-
+        questionCounterTextView.setText(questionsCounter + "/15");
         option1TextView.setBackgroundResource(R.drawable.answeroption_drawable);
         option2TextView.setBackgroundResource(R.drawable.answeroption_drawable);
 
@@ -392,52 +419,6 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         timeCounterHandler = new Handler();
         timeCounterHandler.postDelayed(secondsRunnable, 1000);
 
-    }
-
-    private boolean checkAnswer(CharSequence text, final TextView answerOption) {
-        if (text.equals(currentQuestionAnswer)) {
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
-                    answerOption.setBackgroundResource(R.drawable.answeroption_green_drawable);
-                    YoYo.with(Techniques.Flash)
-                            .duration(500)
-                            .playOn(answerOption);
-                }
-            }, 1000);
-            return true;
-        } else {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Wrong answer", Toast.LENGTH_SHORT).show();
-                    answerOption.setBackgroundResource(R.drawable.answeroption_red_drawable);
-                    YoYo.with(Techniques.Shake)
-                            .duration(500)
-                            .playOn(answerOption);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (questionsCounter < 5) {
-                                setNewQuestion();
-                            } else if (currentLevel < 3) {
-                                currentLevel++;
-                                showNextLevelDialog();
-                                questionsCounter = 0;
-                                setNewQuestion();
-                            } else {
-                                timeCounterHandler.removeCallbacks(secondsRunnable);
-                                showNewGameDialog();
-                            }
-                        }
-                    }, 1700);
-                }
-            }, 1000);
-
-            return false;
-        }
     }
 
     private void showNextLevelDialog() {
@@ -537,6 +518,18 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         return levelQuestionItems;
     }
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        mSensorManager.unregisterListener(mShakeDetector);
+//        super.onPause();
+//    }
 
     private class MyFocusChangeListener implements View.OnFocusChangeListener {
 

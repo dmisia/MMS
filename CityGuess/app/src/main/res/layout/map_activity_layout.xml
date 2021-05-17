@@ -9,7 +9,7 @@
     android:paddingLeft="4dp"
     android:paddingTop="16dp"
     android:paddingRight="4dp"
-    tools:context="edu.pwr.lab46.i236764.MapQuizActivity">
+    tools:context="pl.edu.pwr.lab46.i236764.MapQuizActivity">
 
     <TextView
         android:id="@+id/questionTextView2"
@@ -23,7 +23,7 @@
         android:layout_marginBottom="35dp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        tools:text="Where is the city?" />
+        tools:text="@string/where_is_the_city" />
 
     <FrameLayout
         android:id="@+id/quizMapView"
@@ -59,7 +59,7 @@
             android:padding="7dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Check" />
+            tools:text="@string/check" />
 
         <TextView
             android:id="@+id/nextQuestionTextView"
@@ -70,7 +70,7 @@
             android:padding="7dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Next" />
+            tools:text="@string/next" />
     </LinearLayout>
 
 
@@ -88,7 +88,7 @@
             android:layout_margin="5dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="5/10" />
+            tools:text="@string/sample_quest_cnt" />
 
         <TextView
             android:id="@+id/timeCounterTextView2"
@@ -98,7 +98,7 @@
             android:layout_toLeftOf="@id/questionCounterTextView2"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="60" />
+            tools:text="@string/sample_time_cnt" />
 
 
         <TextView
@@ -109,7 +109,7 @@
             android:layout_margin="5dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="Score: 0" />
+            tools:text="@string/score_text" />
 
     </RelativeLayout>
 </RelativeLayout>

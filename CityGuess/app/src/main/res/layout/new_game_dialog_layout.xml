@@ -17,7 +17,7 @@
         android:layout_marginBottom="10dp"
         android:textColor="@color/white"
         android:textSize="18sp"
-        tools:text="You answered 5 times correctly." />
+        tools:text="@string/score_points_text" />
 
     <TextView
         android:id="@+id/scoreTimeTextView"
@@ -31,7 +31,7 @@
         android:layout_marginBottom="10dp"
         android:textColor="@color/white"
         android:textSize="18sp"
-        tools:text="In 100 seconds" />
+        tools:text="@string/score_time_text" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
             android:padding="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="New game"
+            android:text="@string/new_game"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -68,17 +68,9 @@
             android:padding="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="Start"
+            android:text="@string/start"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
     </LinearLayout>
-
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="  "-->
-    <!--android:background="@color/color_belize_hole"-->
-    <!--android:layout_marginBottom="15dp"/>-->
 </RelativeLayout>

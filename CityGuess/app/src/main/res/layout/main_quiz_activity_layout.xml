@@ -9,7 +9,7 @@
     android:paddingLeft="8dp"
     android:paddingTop="16dp"
     android:paddingRight="8dp"
-    tools:context="edu.pwr.lab46.i236764.MainQuizActivity">
+    tools:context="pl.edu.pwr.lab46.i236764.MainQuizActivity">
 
     <TextView
         android:id="@+id/questionTextView"
@@ -227,7 +227,7 @@
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Type city name" />
+            tools:text="@string/type_city_name" />
 
         <TextView
             android:id="@+id/option2TextView"
@@ -260,7 +260,7 @@
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Hint" />
+            tools:text="@string/hint" />
 
     </LinearLayout>
 
@@ -279,7 +279,7 @@
             android:layout_margin="5dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="5/10" />
+            tools:text="@string/sample_quest_cnt" />
 
         <TextView
             android:id="@+id/timeCounterTextView"
@@ -289,7 +289,7 @@
             android:layout_toLeftOf="@id/questionCounterTextView"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="60" />
+            tools:text="@string/sample_time_cnt" />
 
 
         <TextView
@@ -300,7 +300,7 @@
             android:layout_margin="5dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="Score: 0" />
+            tools:text="@string/score_text" />
 
 
     </RelativeLayout>

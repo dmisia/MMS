@@ -7,5 +7,25 @@
     <string name="title_activity_map_quiz">MapQuizActivity</string>
     <string name="title_activity_high_score">HighScoreActivity</string>
     <string name="title_activity_about_project">AboutProjectActivity</string>
+    <string name="write_your_name">Write your name</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="best_results">Best results:</string>
+    <string name="type_city_name">Type city name</string>
+    <string name="hint">Hint</string>
+    <string name="sample_quest_cnt">5/10</string>
+    <string name="sample_time_cnt">60</string>
+    <string name="score_text">Score: 0</string>
+    <string name="where_is_the_city">Where is the city?</string>
+    <string name="check">Check</string>
+    <string name="next">Next</string>
+    <string name="score_points_text">You answered 5 times correctly.</string>
+    <string name="score_time_text">In 100 seconds</string>
+    <string name="new_game">New game</string>
+    <string name="start">Start</string>
+    <string name="score_points_5">You answered 5 questions.</string>
+    <string name="you_reached_higher_level">You reached higher level!</string>
+    <string name="start_quiz">Start quiz</string>
+    <string name="results">Results</string>
 
 </resources>
